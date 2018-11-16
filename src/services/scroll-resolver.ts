@@ -12,12 +12,13 @@ export function shouldFireScrollEvent(
   }
   const scrolledUntilNow = container.height + container.scrolled;
   if (scrollingDown) {
-    remaining =
-      (container.totalToScroll - scrolledUntilNow) / container.totalToScroll;
-    console.log('remaining', remaining)
-    console.log('container.totalToScroll', container.totalToScroll)
-    console.log('scrolledUntilNow', scrolledUntilNow)
-    console.log('container.scrolled', container.scrolled)
+    // remaining =
+    //   (container.totalToScroll - scrolledUntilNow) / container.totalToScroll;
+
+    const total = document.documentElement.scrollHeight
+    remaining = (total - container.scrolled) / total;
+    // console.log('remain', remaining)
+
     containerBreakpoint = distance.down / 10;
   } else {
     const totalHiddenContentHeight =
